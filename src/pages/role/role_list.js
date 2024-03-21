@@ -7,23 +7,18 @@ import useStateRef from 'react-usestateref';
 import Layout from 'Layouts';
 import { storeLogin } from 'components/redux/storeLogin';
 import Grid from '@material-ui/core/Grid';
-
-import { green } from '@material-ui/core/colors';
 import AddIcon from '@material-ui/icons/Add';
 import CreateIcon from '@material-ui/icons/Create';
 import ListIcon from '@material-ui/icons/List';
-import LaunchIcon from '@material-ui/icons/Launch';
-
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+
 import { red } from '@material-ui/core/colors';
 
-import { createTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -32,9 +27,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
 import LinearProgress from '@material-ui/core/LinearProgress';
@@ -56,10 +48,6 @@ const columns = [
   },
   { id: 'role_name', label: 'Role Name', minWidth: 170 },
 ];
-
-function btn() {
-  return '<Button variant="outlined" color="secondary">Secondary</Button>';
-}
 
 const useStyles = makeStyles({
   root: {

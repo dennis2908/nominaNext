@@ -50,10 +50,6 @@ const columns = [
   { id: 'hobby_name', align: 'left', label: 'Hobby', minWidth: 270 },
 ];
 
-function btn() {
-  return '<Button variant="outlined" color="secondary">Secondary</Button>';
-}
-
 const useStyles = makeStyles({
   root: {
     width: '100%',

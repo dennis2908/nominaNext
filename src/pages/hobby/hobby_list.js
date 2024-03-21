@@ -44,10 +44,6 @@ const columns = [
   { id: 'aktifkah', label: 'Aktif', minWidth: 150 },
 ];
 
-function btn() {
-  return '<Button variant="outlined" color="secondary">Secondary</Button>';
-}
-
 const useStyles = makeStyles({
   root: {
     width: '100%',
