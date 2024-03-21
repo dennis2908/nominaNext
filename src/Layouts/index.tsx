@@ -14,8 +14,7 @@ import Link from 'next/link';
 import menuItems from './menuItem';
 import SEO, { SEOProps } from 'components/SEO';
 
-import {storeLogin} from 'components/redux/storeLogin';
-
+import { storeLogin } from 'components/redux/storeLogin';
 
 const getDefaultTheme = (): DefaultTheme['name'] => {
   if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
@@ -49,12 +48,12 @@ const LayoutPage: React.FC<SEOProps> = ({ children, ...rest }) => {
     if (localTheme !== theme && theme === 'default') {
       setTheme(localTheme);
     }
-	
-	if(storeLogin.getState().authLogin===""){
-			router.push('/auth/signin');
-		}
-		console.log(storeLogin.getState().authLogin)
-		console.log(storeLogin.getState().authUserName)
+
+    if (storeLogin.getState().authLogin === '') {
+      router.push('/auth/signin');
+    }
+    console.log(storeLogin.getState().authLogin);
+    console.log(storeLogin.getState().authUserName);
   }, []);
 
   const changeDir = () => {
