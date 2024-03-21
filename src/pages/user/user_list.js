@@ -151,7 +151,7 @@ export default function User_list() {
 
   const dataHobby = async (e) => {
     await DoShowLin();
-    await fetch('http://127.0.0.1:8441/api/hobby', {
+    await fetch('http://127.0.0.1:8441/api/hobby/data', {
       method: 'GET',
       headers: { Authorization: 'Bearer ' + storeLogin.getState().authLogin },
     })
