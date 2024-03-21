@@ -184,7 +184,7 @@ export default function Signin() {
               <input type="password" placeholder="Enter Password" name="password" required />
             </InputGroup>
             <Group>
-              <a onClick={() => setShowForm(!showForm)}>Don't Have account. Register here!</a>
+              <a onClick={() => setShowForm(!showForm)}>Don't Have account. Click here!</a>
             </Group>
             <Button status="Success" type="submit" shape="SemiRound" fullWidth>
               Login
@@ -286,7 +286,7 @@ export default function Signin() {
               {dataSelRole}
             </NativeSelect>
             <Group>
-              <a onClick={() => setShowForm(!showForm)}>Already Have account. Login here!</a>
+              <a onClick={() => setShowForm(!showForm)}>Already Have account. Click here!</a>
             </Group>
             <Button status="Success" type="submit" shape="SemiRound" fullWidth>
               Register
