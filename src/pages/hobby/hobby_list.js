@@ -264,10 +264,10 @@ export default function Hobby_list() {
       == Pilih ==
     </option>,
     <option value="1" key={String('1hobby') + String('1hobby')}>
-      == Aktif ==
+      Aktif
     </option>,
     <option value="2" key={String('2hobby') + String('2hobby')}>
-      == Tidak Aktif ==
+      Tidak Aktif
     </option>,
   ];
 
