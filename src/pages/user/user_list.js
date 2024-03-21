@@ -182,39 +182,16 @@ export default function User_list() {
       alert('password not match');
       return false;
     }
-    if (typeof FormData.id === 'undefined') {
-      fetch('http://127.0.0.1:8441/api/user', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Headers': '*',
-          Authorization: 'Bearer ' + storeLogin.getState().authLogin,
-        },
-        body: JSON.stringify(FormData),
-      })
-        .then((res) => res.json())
-        .then((result) => {
-          loadData();
-          handleClose();
-        });
-    } else {
-      fetch('http://127.0.0.1:8441/api/user/' + FormData.id, {
-        method: 'PUT',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Headers': '*',
-          Authorization: 'Bearer ' + storeLogin.getState().authLogin,
-        },
-        body: JSON.stringify(FormData),
-      })
-        .then((res) => res.json())
-        .then((result) => {
-          loadData();
-          handleClose();
-        });
-    }
+    fetch('http://127.0.0.1:8441/api/user', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Headers': '*',
+        Authorization: 'Bearer ' + storeLogin.getState().authLogin,
+      },
+      body: JSON.stringify(FormData),
+    });
     e.preventDefault();
   };
 
