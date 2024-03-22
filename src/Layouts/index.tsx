@@ -52,8 +52,6 @@ const LayoutPage: React.FC<SEOProps> = ({ children, ...rest }) => {
     if (storeLogin.getState().authLogin === '') {
       router.push('/auth/signin');
     }
-    console.log(storeLogin.getState().authLogin);
-    console.log(storeLogin.getState().authUserName);
   }, []);
 
   const changeDir = () => {

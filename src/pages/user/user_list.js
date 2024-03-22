@@ -138,7 +138,6 @@ export default function User_list() {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result.result);
         setselrole(result.result);
       });
     await DoHideLin();
@@ -152,7 +151,6 @@ export default function User_list() {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result.result);
         setselhobby(result.result);
       });
     await DoHideLin();
@@ -195,7 +193,6 @@ export default function User_list() {
     setFormData({});
     setIconSEtitle(<AddIcon style={{ marginBottom: -4 }} color="primary" />);
     setDialogSEtitle('New Register');
-    console.log('New Register');
     setBtnDilSE('Save');
   };
 
@@ -519,7 +516,6 @@ export default function User_list() {
                         return (
                           <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
                             {columns.map((column) => {
-                              //console.log(column.id);
                               if (column.id === 'btn') {
                                 return (
                                   <TableCell key={column.id} align={column.align}>

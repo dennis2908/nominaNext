@@ -105,12 +105,10 @@ export default function Hobby_list() {
         let data = result.result;
         if (result.result) {
           for (var i = 0; i < data.length; i++) {
-            console.log(result.result[i]);
             if (result.result[i].aktif) {
               result.result[i].aktifkah = cekAktif(result.result[i].aktif);
             }
           }
-          console.log(result.result);
           setrows(result.result);
         }
       });
@@ -188,7 +186,7 @@ export default function Hobby_list() {
     setFormData({});
     setIconSEtitle(<AddIcon style={{ marginBottom: -4 }} color="primary" />);
     setDialogSEtitle('New Data Hobby');
-    console.log('New Data Hobby');
+    ('New Data Hobby');
     setBtnDilSE('Save');
   };
 
@@ -382,7 +380,6 @@ export default function Hobby_list() {
                         return (
                           <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
                             {columns.map((column) => {
-                              //console.log(column.id);
                               if (column.id === 'btn') {
                                 return (
                                   <TableCell key={column.id} align={column.align}>

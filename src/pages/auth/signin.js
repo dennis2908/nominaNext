@@ -36,21 +36,17 @@ export default function Signin() {
   }, []);
 
   const onFieldChange = (fieldName) => {
-    //console.log(fieldName);
     return function (event) {
       FormData[fieldName] = event.target.value;
-      console.log(FormData);
       setFormData(FormData);
     };
   };
 
   const SubmitForm = async (e) => {
     e.preventDefault();
-    let authLogin = storeLogin.getState().authLogin;
     let formData = {};
     formData.email = e.target.email.value;
     formData.password = e.target.password.value;
-    console.log(formData);
 
     await fetch('http://127.0.0.1:8441/api/user/login', {
       method: 'POST',
@@ -115,7 +111,6 @@ export default function Signin() {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result.result);
         setselrole(result.result);
       });
   };
@@ -131,7 +126,6 @@ export default function Signin() {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result.result);
         setselhobby(result.result);
       });
   };

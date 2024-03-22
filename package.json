@@ -29,6 +29,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start --port ${PORT-3000}",
+    "lint": "eslint --fix --ext .js,.jsx .",
     "prepare": "husky install"
   },
   "devDependencies": {

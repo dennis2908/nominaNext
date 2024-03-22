@@ -142,7 +142,6 @@ export default function Role_list() {
 
   const saveUpdateData = (e) => {
     e.preventDefault();
-    console.log(FormData);
     if (typeof FormData.id === 'undefined') {
       fetch('http://127.0.0.1:8441/api/role', {
         method: 'POST',
@@ -182,7 +181,6 @@ export default function Role_list() {
   const UpdateAssign = (e) => {
     e.preventDefault();
     let role_assign = '';
-    console.log(FormAssign);
     if (Object.keys(FormAssign).length > 0) {
       Object.entries(FormAssign).map(function (k, v) {
         if (k[1]) role_assign += k[1] + ',';
@@ -216,15 +214,12 @@ export default function Role_list() {
   };
 
   const onAssignChange = (fieldName) => {
-    //console.log(fieldName);
     return function (event) {
-      console.log(event.target.checked);
       if (event.target.checked) {
         FormAssign[fieldName] = fieldName;
       } else {
         FormAssign[fieldName] = '';
       }
-      console.log(FormAssign);
 
       setFormAssign(FormAssign);
     };
@@ -235,7 +230,6 @@ export default function Role_list() {
     setFormData({});
     setIconSEtitle(<AddIcon style={{ marginBottom: -4 }} color="primary" />);
     setDialogSEtitle('New Data Role');
-    console.log('New Data Role');
     setBtnDilSE('Save');
   };
 
@@ -250,7 +244,6 @@ export default function Role_list() {
   };
 
   const OpenAssignSE = async (data) => {
-    console.log(data.role_assign);
     let FrmCheckAssign = defRoleAss;
     if (data.role_assign != null) {
       let role_assign = data.role_assign.split(',');
@@ -259,7 +252,6 @@ export default function Role_list() {
         FormAssign[k] = k;
       });
     }
-    console.log(FrmCheckAssign);
     setFormData(data);
     setFormCheckAssign(FrmCheckAssign);
     setFormAssign(FormAssign);
@@ -282,10 +274,6 @@ export default function Role_list() {
 
   const handleCloseAssignDil = (data) => {
     setOpenAssignDil(false);
-  };
-
-  const handleCloseAssignDel = (data) => {
-    setOpenAssignDel(false);
   };
 
   const classes = useStyles();
@@ -537,7 +525,7 @@ export default function Role_list() {
                     Assign To Role
                   </div>
                   <form autoComplete="off" onSubmit={(e) => UpdateAssign(e)}>
-                    <Grid container spacing={3}>
+                    <Grid container spacing={3} key={String('gridrole')}>
                       {frmCheck}
                     </Grid>
                     <Button type="submit" variant="contained" color="primary">
@@ -573,7 +561,6 @@ export default function Role_list() {
                         return (
                           <TableRow hover role="checkbox" tabIndex={-1} key={String(row.id) + String('kkkkk')}>
                             {columns.map((column) => {
-                              //console.log(column.id);
                               if (column.id === 'btn') {
                                 return (
                                   <TableCell key={String(column.id) + String('DDDD')} align={column.align}>

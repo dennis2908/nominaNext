@@ -3,7 +3,6 @@ import { createStore } from 'redux';
 const ls = require('local-storage');
 
 if (!ls.get('nextJS')) {
-  console.log(3131132);
   let arry = {};
   arry['authLogin'] = '';
   arry['authUserName'] = '';
