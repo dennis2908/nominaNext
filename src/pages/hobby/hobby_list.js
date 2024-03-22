@@ -33,6 +33,8 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 import { useRouter } from 'next/router';
 
+import { onFieldChange } from '../../genFunctions/onFieldChange';
+
 const columns = [
   {
     id: 'btn',
@@ -93,7 +95,7 @@ export default function Hobby_list() {
     loadData();
   }, []);
   const loadData = async (e) => {
-    await DoShowLin();
+    await setShowHideLin({ display: 'block' });
     await fetch('http://127.0.0.1:8441/api/hobby', {
       method: 'GET',
       headers: { Authorization: 'Bearer ' + storeLogin.getState().authLogin },
@@ -112,14 +114,6 @@ export default function Hobby_list() {
           setrows(result.result);
         }
       });
-    await DoHideLin();
-  };
-
-  const DoShowLin = async (e) => {
-    setShowHideLin({ display: 'block' });
-  };
-
-  const DoHideLin = async (e) => {
     setShowHideLin({ display: 'none' });
   };
 
@@ -189,15 +183,6 @@ export default function Hobby_list() {
     else return 'Tidak Aktif';
   };
 
-  const onFieldChange = (fieldName) => {
-    //console.log(fieldName);
-    return function (event) {
-      FormData[fieldName] = event.target.value;
-      console.log(FormData);
-      setFormData(FormData);
-    };
-  };
-
   const openNewForm = () => {
     setOpen(true);
     setFormData({});
@@ -225,19 +210,6 @@ export default function Hobby_list() {
   const handleCloseDelDil = () => {
     loadData();
     setOpenDelDil(false);
-  };
-
-  const formatRupiah = (angka, prefix) => {
-    return (
-      prefix +
-      ' ' +
-      angka
-        .toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-        .replace('.', '-')
-        .replace(/,/g, '.')
-        .replace('-', ',')
-    );
   };
 
   const handleCloseDetailDil = (data) => {

@@ -34,6 +34,8 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 import { useRouter } from 'next/router';
 
+import { onFieldChange } from '../../genFunctions/onFieldChange';
+
 const columns = [
   {
     id: 'btn',
@@ -114,13 +116,6 @@ export default function User_list() {
       .then((result) => {
         let data = result.result;
         if (result.result) {
-          for (var i = 0; i < data.length; i++) {
-            console.log(result.result[i]);
-            if (result.result[i].price) {
-              result.result[i].priceM = formatRupiah(result.result[i]['price'], 'Rp. ');
-            }
-          }
-          console.log(result.result);
           setrows(result.result);
         }
       });
@@ -195,15 +190,6 @@ export default function User_list() {
     e.preventDefault();
   };
 
-  const onFieldChange = (fieldName) => {
-    //console.log(fieldName);
-    return function (event) {
-      FormData[fieldName] = event.target.value;
-      console.log(FormData);
-      setFormData(FormData);
-    };
-  };
-
   const openNewForm = () => {
     setOpen(true);
     setFormData({});
@@ -231,19 +217,6 @@ export default function User_list() {
   const handleCloseDelDil = () => {
     loadData();
     setOpenDelDil(false);
-  };
-
-  const formatRupiah = (angka, prefix) => {
-    return (
-      prefix +
-      ' ' +
-      angka
-        .toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-        .replace('.', '-')
-        .replace(/,/g, '.')
-        .replace('-', ',')
-    );
   };
 
   const handleCloseDetailDil = (data) => {

@@ -33,6 +33,8 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 import { useRouter } from 'next/router';
 
+import { onFieldChange } from '../../genFunctions/onFieldChange';
+
 const columns = [
   {
     id: 'btn',
@@ -113,14 +115,6 @@ export default function Role_list() {
     })
       .then((res) => res.json())
       .then((result) => {
-        let data = result.result;
-        for (var i = 0; i < data.length; i++) {
-          console.log(result.result[i]);
-          if (result.result[i].price) {
-            result.result[i].priceM = formatRupiah(result.result[i]['price'], 'Rp. ');
-          }
-        }
-        console.log(result.result);
         setrows(result.result);
       });
     await DoHideLin();
@@ -221,15 +215,6 @@ export default function Role_list() {
     setBtnDilSE('Update');
   };
 
-  const onFieldChange = (fieldName) => {
-    //console.log(fieldName);
-    return function (event) {
-      FormData[fieldName] = event.target.value;
-      console.log(FormData);
-      setFormData(FormData);
-    };
-  };
-
   const onAssignChange = (fieldName) => {
     //console.log(fieldName);
     return function (event) {
@@ -289,19 +274,6 @@ export default function Role_list() {
   const handleCloseDelDil = () => {
     loadData();
     setOpenDelDil(false);
-  };
-
-  const formatRupiah = (angka, prefix) => {
-    return (
-      prefix +
-      ' ' +
-      angka
-        .toString()
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-        .replace('.', '-')
-        .replace(/,/g, '.')
-        .replace('-', ',')
-    );
   };
 
   const handleCloseDetailDil = (data) => {
