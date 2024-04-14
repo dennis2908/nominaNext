@@ -33,8 +33,6 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 import { useRouter } from 'next/router';
 
-import { onFieldChange } from '../../genFunctions/onFieldChange';
-
 const columns = [
   {
     id: 'btn',

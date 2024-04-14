@@ -33,8 +33,6 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 import { useRouter } from 'next/router';
 
-import { onFieldChange } from '../../genFunctions/onFieldChange';
-
 const columns = [
   {
     id: 'btn',
@@ -125,6 +123,13 @@ export default function Hobby_list() {
         loadData();
         handleCloseDelDil();
       });
+  };
+
+  const onFieldChange = (fieldName) => {
+    return function (event) {
+      FormData[fieldName] = event.target.value;
+      setFormData(FormData);
+    };
   };
 
   const saveUpdateData = (e) => {

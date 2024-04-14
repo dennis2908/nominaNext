@@ -34,8 +34,6 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 import { useRouter } from 'next/router';
 
-import { onFieldChange } from '../../genFunctions/onFieldChange';
-
 const columns = [
   {
     id: 'btn',
@@ -194,6 +192,13 @@ export default function User_list() {
     setIconSEtitle(<AddIcon style={{ marginBottom: -4 }} color="primary" />);
     setDialogSEtitle('New Register');
     setBtnDilSE('Save');
+  };
+
+  const onFieldChange = (fieldName) => {
+    return function (event) {
+      FormData[fieldName] = event.target.value;
+      setFormData(FormData);
+    };
   };
 
   const OpenDetailSE = async (data) => {
